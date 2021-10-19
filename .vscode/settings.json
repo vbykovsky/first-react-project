@@ -1,0 +1,19 @@
+{
+    "files.exclude": {
+      "node_modules/": true,
+      "package-lock.json": true,
+      ".eslintrc.js": true,
+      ".gitignore": true,
+      ".prettierrc.js": true,
+      "tsconfig.json": true,
+    },
+  
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+    },
+  
+    "editor.tabSize": 2,
+    "editor.foldingHighlight": false,
+  
+    "cSpell.language": "en,ru",
+  }
