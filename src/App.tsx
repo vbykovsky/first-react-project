@@ -1,20 +1,19 @@
-import React, { FC } from "react";
+import React from "react";
 import { Paper } from "@mui/material";
-import { Header, Card } from "@components";
+import { Header } from "@components";
 import { useStyles } from "./App.styles";
+import { DishesContainer } from "./containers/DishesContainer";
+import { CommentsContainer } from "./containers/CommentsContainer/CommentsContainer";
 
-export const App: FC = () => {
+export const App: React.FC = () => {
   const classes = useStyles();
 
   return (
     <Paper className={classes.rootContainer} elevation={0}>
       <Header />
       <Paper className={classes.contentContainer}>
-        <Card
-          title="Test"
-          imagePath="https://cdn.britannica.com/84/206384-050-00698723/Javan-gliding-tree-frog.jpg"
-          description="frog"
-        />
+        <DishesContainer />
+        <CommentsContainer />
       </Paper>
     </Paper>
   );
