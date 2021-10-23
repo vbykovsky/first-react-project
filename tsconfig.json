@@ -19,6 +19,10 @@
     "paths": {
       "@components": ["src/components/index.ts"],
       "@components/*": ["src/components/*"],
+      "@containers": ["src/containers/index.ts"],
+      "@containers/*": ["src/containers/*"],
+      "@services": ["src/services/index.ts"],
+      "@services/*": ["src/services/*"],
       "@ts": ["src/ts/index.ts"],
       "@ts/*": ["src/ts/*"]
     }

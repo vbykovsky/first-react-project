@@ -1,6 +1,6 @@
 import React from "react";
 import { Comment } from "@components";
-import { DishesContext } from "../../services/dishes.service";
+import { DishesContext } from "@services";
 import { useStyles } from "./CommentsContainer.styles";
 
 export const CommentsContainer: React.FC = () => {
