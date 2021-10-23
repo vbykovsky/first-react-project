@@ -1,9 +1,9 @@
 import React from "react";
 import { Card } from "@components";
-import { DishesContext } from "../../services/dishes.service";
+import { useSelector, selectDish } from "@services";
 
 export const DishesContainer: React.FC = () => {
-  const { dishes, selectDish } = React.useContext(DishesContext);
+  const dishes = useSelector((state) => state.dishes);
 
   const dishesCards = React.useMemo(
     () =>
