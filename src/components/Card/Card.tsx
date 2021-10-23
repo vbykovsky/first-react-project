@@ -6,13 +6,14 @@ export type CardProps = {
   title: string;
   imagePath?: string;
   description?: string;
+  onClick?: () => void;
 };
 
-export const Card: FC<CardProps> = ({ title, imagePath, description }) => {
+export const Card: FC<CardProps> = ({ title, imagePath, description, onClick }) => {
   const classes = useStyles();
 
   return (
-    <MUICard className={classes.card}>
+    <MUICard className={classes.card} onClick={onClick}>
       <CardActionArea>
         {imagePath && <CardMedia component="img" height="140" image={imagePath} alt={title} />}
         <CardContent>

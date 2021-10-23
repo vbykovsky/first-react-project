@@ -26,6 +26,5 @@ export const useStyles = makeStyles({
   contentContainer: {
     padding: 20,
     paddingTop: 52 + 20,
-    height: "100%",
   },
 });
