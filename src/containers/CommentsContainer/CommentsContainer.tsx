@@ -1,18 +1,12 @@
 import React from "react";
 import { Comment } from "@components";
-import { useSelector, getSelectedDishById } from "@services";
+import { useDishesSelector } from "@services";
 import { useStyles } from "./CommentsContainer.styles";
 
 export const CommentsContainer: React.FC = () => {
   const classes = useStyles();
 
-  const dishes = useSelector((state) => state.dishes);
-  const selectedDishId = useSelector((state) => state.selectedDishId);
-
-  const selectedDish = React.useMemo(
-    () => !!selectedDishId && getSelectedDishById(dishes, selectedDishId),
-    [dishes, selectedDishId]
-  );
+  const selectedDish = useDishesSelector((state) => state.dishes.find((dish) => dish.id === state.selectedDishId));
 
   const comments = React.useMemo(() => {
     if (!selectedDish) {

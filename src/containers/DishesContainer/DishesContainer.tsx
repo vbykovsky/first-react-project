@@ -1,9 +1,9 @@
 import React from "react";
 import { Card } from "@components";
-import { useSelector, selectDish } from "@services";
+import { useDishesSelector, selectDish } from "@services";
 
 export const DishesContainer: React.FC = () => {
-  const dishes = useSelector((state) => state.dishes);
+  const dishes = useDishesSelector((state) => state.dishes);
 
   const dishesCards = React.useMemo(
     () =>

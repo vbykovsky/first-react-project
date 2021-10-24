@@ -1,39 +1,61 @@
 import { Dish } from "@ts/dish";
+import produce, { Draft } from "immer";
 import { Store, selectorFactory } from "../../store";
 import dishesData from "./mock/dishes.json";
+
+type StoreActionsType<StateType> = {
+  [T in string]: (state: Draft<StateType>, payload?: any) => void;
+};
+
+function createStore<StateType, ActionsType>(
+  initialState: StateType,
+  actions: ActionsType
+): {
+  store: Store<StateType>;
+  actions: {
+    [T in keyof ActionsType]: (payload: Parameters<ActionsType[T]>["1"]) => void;
+  };
+} {
+  const store = new Store<StateType>(initialState);
+
+  return {
+    store,
+    actions: Object.fromEntries(
+      Object.keys(actions).map((actionName) => [
+        actionName as keyof typeof actions,
+        (payload: any) => {
+          const newState = produce(store.state, (state) => {
+            actions[actionName](state, payload);
+          });
+          store.dispatch(newState);
+        },
+      ])
+    ) as any,
+  };
+}
 
 interface IDishesService {
   dishes: Dish[];
   selectedDishId?: string;
 }
 
-class DishesService extends Store<IDishesService> {
-  constructor() {
-    super({
-      dishes: dishesData,
-    });
+export const dishesService = createStore<IDishesService>(
+  {
+    dishes: dishesData,
+  },
+  {
+    selectDish(state, payload: string) {
+      const candidate = state.dishes.find((dish) => dish.id === payload);
+
+      if (!candidate) {
+        throw new Error("Selected dish id is not defined in dishes state");
+      }
+
+      state.selectedDishId = candidate.id;
+    },
   }
+);
 
-  public selectDish(id: string) {
-    const candidate = this.state.dishes.find((dish) => dish.id === id);
+export const useDishesSelector = selectorFactory<IDishesService>(dishesService.store);
 
-    if (!candidate) {
-      throw new Error("Selected dish id is not defined in dishes state");
-    }
-
-    this.dispatch({ ...this.state, selectedDishId: candidate.id });
-
-    return candidate.id;
-  }
-
-  public getSelectedDishById(dishes: Dish[], id: string) {
-    return dishes.find((dish) => dish.id === id);
-  }
-}
-
-export const dishesService = new DishesService();
-
-export const useSelector = selectorFactory<IDishesService, DishesService>(dishesService);
-
-export const selectDish = dishesService.selectDish.bind(dishesService);
-export const getSelectedDishById = dishesService.getSelectedDishById.bind(dishesService);
+export const { selectDish } = dishesService.actions;

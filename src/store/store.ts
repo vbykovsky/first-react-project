@@ -20,8 +20,10 @@ export class Store<StateType> {
   public subscribe(subscriber: SubscriberType<StateType>) {
     this._subscribers.push(subscriber);
 
-    return () => {
-      unsubscribe: this._subscribers = this._subscribers.filter((_subscriber) => _subscriber !== subscriber);
+    return {
+      unsubscribe: () => {
+        this._subscribers = this._subscribers.filter((_subscriber) => _subscriber !== subscriber);
+      },
     };
   }
 
