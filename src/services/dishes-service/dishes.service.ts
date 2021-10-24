@@ -7,7 +7,7 @@ type StoreActionsType<StateType> = {
   [T in string]: (state: Draft<StateType>, payload?: any) => void;
 };
 
-function createStore<StateType, ActionsType>(
+function createStore<StateType, ActionsType extends StoreActionsType<StateType>>(
   initialState: StateType,
   actions: ActionsType
 ): {
