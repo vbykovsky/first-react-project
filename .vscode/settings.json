@@ -16,4 +16,8 @@
     "editor.foldingHighlight": false,
   
     "cSpell.language": "en,ru",
+    "cSpell.words": [
+      "okos",
+      "Okos"
+    ],
   }

@@ -1,8 +1,10 @@
 import React from "react";
-import { Store } from "./store";
+import { Okos } from "./okos";
 
-export function selectorFactory<StateType>(store: Store<StateType>) {
-  return function <T>(cb: (state: StateType) => T): T {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function selectorFactory<StoreType extends Okos<any> = Okos<any>>(store: StoreType) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return function <T>(cb: (state: StoreType extends Okos<infer R> ? R : any) => T): T {
     const [value, setValue] = React.useState<T>(cb(store.state));
 
     React.useEffect(() => {
