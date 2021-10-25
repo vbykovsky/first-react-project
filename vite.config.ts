@@ -9,6 +9,7 @@ export default defineConfig({
       "@components": path.resolve("./src/components"),
       "@containers": path.resolve("./src/containers"),
       "@services": path.resolve("./src/services"),
+      "@utils": path.resolve("./src/utils"),
       "@okos": path.resolve("./src/@okos"),
       "@ts": path.resolve("./src/ts"),
     },

@@ -1,10 +1,11 @@
 import React, { FC } from "react";
-import { AppBar, Typography } from "@mui/material";
-import { useStyles } from "./Header.styles";
 import { Link as RouterLink } from "react-router-dom";
+import { AppBar, Typography } from "@mui/material";
+import { connectClasses } from "@utils";
+import { useStyles } from "./Header.styles";
 
 export type HeaderProps = {
-  links?: { text: string; to: string }[];
+  links?: { text: string; to: string; isActive?: boolean }[];
 };
 
 export const Header: FC<HeaderProps> = ({ links = [] }) => {
@@ -12,8 +13,15 @@ export const Header: FC<HeaderProps> = ({ links = [] }) => {
 
   const linksComponents = React.useMemo(
     () =>
-      links.map(({ text, to }) => (
-        <RouterLink key={text} className={classes.navigationLink} to={to}>
+      links.map(({ text, to, isActive }) => (
+        <RouterLink
+          key={text}
+          className={connectClasses({
+            [classes.navigationLink]: true,
+            [classes.activeNavigationLink]: !!isActive,
+          })}
+          to={to}
+        >
           <div className={classes.navigationLinkContent}>{text}</div>
         </RouterLink>
       )),

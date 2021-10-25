@@ -19,6 +19,11 @@ export const useStyles = makeStyles({
   navigationLink: {
     textDecoration: "none",
   },
+  activeNavigationLink: {
+    "& > $navigationLinkContent": {
+      borderBottom: "2px solid white",
+    },
+  },
   navigationLinkContent: {
     marginRight: 15,
     color: "white",

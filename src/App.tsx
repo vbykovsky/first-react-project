@@ -1,7 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { Paper } from "@mui/material";
-import { Header } from "@containers";
+import { Breadcrumbs, Header } from "@containers";
 import { useStyles } from "./App.styles";
 import { Home } from "./pages";
 
@@ -15,9 +15,11 @@ export const App: React.FC = () => {
           <Paper className={classes.rootContainer} elevation={0}>
             <Header />
             <Paper className={classes.contentContainer}>
-              <Route path="/">
+              <Breadcrumbs />
+              <Route path="/home">
                 <Home />
               </Route>
+              <Redirect to="/home" />
             </Paper>
           </Paper>
         </>
