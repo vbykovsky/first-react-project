@@ -23,7 +23,7 @@
       "@containers/*": ["src/containers/*"],
       "@services": ["src/services/index.ts"],
       "@services/*": ["src/services/*"],
-      "@okos": ["src/okos/index.ts"],
+      "@okos": ["src/@okos/index.ts"],
       "@ts": ["src/ts/index.ts"],
       "@ts/*": ["src/ts/*"]
     }

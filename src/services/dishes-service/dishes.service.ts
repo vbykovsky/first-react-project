@@ -1,6 +1,7 @@
 import { Dish } from "@ts/dish";
 import { createStore, selectorFactory } from "@okos";
 import { dishesData } from "./mock";
+
 interface DishesService {
   dishes: Dish[];
   selectedDishId?: string;

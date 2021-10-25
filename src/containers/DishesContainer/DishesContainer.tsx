@@ -1,8 +1,11 @@
 import React from "react";
 import { Card } from "@components";
 import { useDishesSelector, selectDish } from "@services";
+import { useStyles } from "./DishesContainer.styles";
 
 export const DishesContainer: React.FC = () => {
+  const classes = useStyles();
+
   const dishes = useDishesSelector((state) => state.dishes);
 
   const dishesCards = React.useMemo(
@@ -19,5 +22,5 @@ export const DishesContainer: React.FC = () => {
     [dishes]
   );
 
-  return <div>{dishesCards}</div>;
+  return <div className={classes.container}>{dishesCards}</div>;
 };
