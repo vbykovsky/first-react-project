@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import { Paper } from "@mui/material";
 import { Breadcrumbs, Header } from "@containers";
 import { useStyles } from "./App.styles";
-import { Home } from "./pages";
+import { About, Home } from "./pages";
 
 export const App: React.FC = () => {
   const classes = useStyles();
@@ -16,10 +16,15 @@ export const App: React.FC = () => {
             <Header />
             <Paper className={classes.contentContainer}>
               <Breadcrumbs />
-              <Route path="/home">
+              {/* Routes */}
+              <Route path="/home/about" exact>
+                <About />
+              </Route>
+              <Route path="/home" exact>
                 <Home />
               </Route>
               <Redirect to="/home" />
+              {/* Routes */}
             </Paper>
           </Paper>
         </>

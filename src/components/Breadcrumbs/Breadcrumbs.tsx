@@ -8,14 +8,14 @@ export type BreadcrumbsProps = DefaultProps & {
 };
 
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className, path }) => {
-  const links = path.split("/");
+  const links = path.split("/").filter((link) => !!link);
   const currentLink = links.pop();
 
   return (
     <div className={className}>
       <MUIBreadcrumbs>
         {links.map((link, key) => (
-          <Link key={link + key} to={link}>
+          <Link key={link + key} to={`/${links.slice(0, key + 1).join("/")}`}>
             {link}
           </Link>
         ))}

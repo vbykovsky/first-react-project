@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
     <HeaderComponent
       links={[
         { text: "Home", to: "/home" },
-        { text: "About", to: "/about" },
+        { text: "About", to: "/home/about" },
       ].map((link) => ({ ...link, isActive: link.to === location.pathname }))}
     />
   );
