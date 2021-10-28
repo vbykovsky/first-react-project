@@ -1,5 +1,5 @@
 import { Dish } from "@ts/dish";
-import { createStore, selectorFactory } from "@okos";
+import { createStore, selectorFactory } from "okos";
 import { dishesData } from "./mock";
 
 interface DishesService {
@@ -12,7 +12,7 @@ const initialState: DishesService = {
 };
 
 export const dishesService = createStore(initialState, {
-  selectDish: (state, payload: string) => {
+  selectDish(state, payload: string) {
     const candidate = state.dishes.find((dish) => dish.id === payload);
 
     if (!candidate) {

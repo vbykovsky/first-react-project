@@ -10,7 +10,6 @@ export default defineConfig({
       "@containers": path.resolve("./src/containers"),
       "@services": path.resolve("./src/services"),
       "@utils": path.resolve("./src/utils"),
-      "@okos": path.resolve("./src/@okos"),
       "@ts": path.resolve("./src/ts"),
     },
   },

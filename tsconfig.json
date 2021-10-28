@@ -25,7 +25,6 @@
       "@services/*": ["src/services/*"],
       "@utils": ["src/utils/index.ts"],
       "@utils/*": ["src/utils/*"],
-      "@okos": ["src/@okos/index.ts"],
       "@ts": ["src/ts/index.ts"],
       "@ts/*": ["src/ts/*"]
     }
