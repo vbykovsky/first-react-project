@@ -1,5 +1,5 @@
-import { Dish } from "@ts/dish";
 import { createStore, selectorFactory } from "okos";
+import { Dish } from "@ts/dish";
 import { dishesData } from "./mock";
 
 interface DishesService {
