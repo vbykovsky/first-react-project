@@ -9,6 +9,7 @@
         "id": "0",
         "text": "Test comment 1",
         "author": "Tom Cruse",
+        "rating": 5,
         "date": 1634710632411
       }
     ]
@@ -23,12 +24,14 @@
         "id": "1",
         "text": "Test comment 2",
         "author": "Michael Cruse",
+        "rating": 3,
         "date": 1634710622411
       },
       {
         "id": "2",
         "text": "Test comment 3",
         "author": "Tim Autumn",
+        "rating": 4,
         "date": 1634710712411
       }
     ]
@@ -43,18 +46,21 @@
         "id": "3",
         "text": "Test comment 3",
         "author": "Michael Cruse",
+        "rating": 2,
         "date": 1634710622411
       },
       {
         "id": "4",
         "text": "Test comment 4",
         "author": "Tim Autumn",
+        "rating": 5,
         "date": 1634710712411
       },
       {
         "id": "5",
         "text": "Test comment 5",
         "author": "Tim Autumn",
+        "rating": 4,
         "date": 1634710712411
       }
     ]
@@ -69,6 +75,7 @@
         "id": "6",
         "text": "Test comment 6",
         "author": "Michael Cruse",
+        "rating": 4,
         "date": 1634710622411
       }
     ]

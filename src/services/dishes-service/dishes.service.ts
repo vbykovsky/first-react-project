@@ -21,8 +21,22 @@ export const dishesService = createStore(initialState, {
 
     state.selectedDishId = candidate.id;
   },
+  addComment(state, payload: { dishId: string; rating: number; text: string; author: string }) {
+    const { dishId, ...comment } = payload;
+
+    const dish = state.dishes.find((dish) => dish.id === dishId);
+    if (!dish) {
+      return undefined;
+    }
+
+    dish.comments.push({
+      id: dish.comments.length.toString(),
+      ...comment,
+      date: Date.now(),
+    });
+  },
 });
 
 export const useDishesSelector = selectorFactory(dishesService.store);
 
-export const { selectDish } = dishesService.actions;
+export const { selectDish, addComment } = dishesService.actions;

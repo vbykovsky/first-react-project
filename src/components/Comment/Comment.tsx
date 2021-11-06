@@ -6,11 +6,12 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-export const Comment: React.FC<CommentType> = ({ text, author, date }) => (
+export const Comment: React.FC<CommentType> = ({ text, author, rating, date }) => (
   <Accordion>
     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
       <Typography>
-        {author} - {new Date(date).toLocaleDateString("ru") + " " + new Date(date).toLocaleTimeString("ru")}
+        {author} - {new Date(date).toLocaleDateString("ru") + " " + new Date(date).toLocaleTimeString("ru")} (
+        {`rating: ${rating}`})
       </Typography>
     </AccordionSummary>
     <AccordionDetails>
